@@ -1,0 +1,11 @@
+spring.application.name: invierte-ya-service
+
+server:
+  servlet:
+    context-path: /api/v1
+
+spring:
+  profiles:
+    active: develop
+  config:
+    import: configserver:http://localhost:8888

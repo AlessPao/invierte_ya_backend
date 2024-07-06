@@ -1,0 +1,9 @@
+server.port: 8761
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance: #no es necesario en local
+    prefer-ip-address: true
+    hostname: eureka-server-2024.herokuapp.com
+

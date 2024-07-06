@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: https://eureka-server-2024-ba7f3732a33e.herokuapp.com/eureka/ #http://localhost:8761/eureka/
+  instance: #no es necesario en local
+    prefer-ip-address: true
+    hostname: gateway-2024.herokuapp.com
+
+spring:
+  application:
+    name: gateway-service
+  config:
+    import: optional:configserver:https://config-server-2024-9adfd2ef5224.herokuapp.com #http://localhost:8888
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: calculator-service
+            uri: https://calculator-service-568df4f6c0a6.herokuapp.com #lb://calculator-service
+            predicates:
+              - Path=/api/v1/calculators/**
+          - id: invierte-ya-service
+            uri: lb://invierte-ya-service
+            predicates:
+              - Path=/api/v1/**

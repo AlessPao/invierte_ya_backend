@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: config-server
+  cloud.config.server.git:
+    uri: https://github.com/diegojva/inverte-ya-data
+    username: diegojva
+    password: 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
+    default-label: master

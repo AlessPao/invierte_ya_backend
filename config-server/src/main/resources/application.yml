@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    service-url:
+      defaultZone: https://eureka-server-2024-ba7f3732a33e.herokuapp.com/eureka/ #http://localhost:8761/eureka/
+  instance: #no es necesario en local
+    prefer-ip-address: true
+    hostname: config-server-2024.herokuapp.com
+
+spring:
+  application:
+    name: config-server
+  cloud.config.server.git:
+    uri: #poner url de git donde está los archivos yml
+    username: #nombre de usuario de git
+    password: #crear access token
+    default-label: master
+    clone-on-start: true
